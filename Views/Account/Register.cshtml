@@ -1,0 +1,38 @@
+@model TennisShopApp.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2 class="text-center mb-4">Inscription</h2>
+            <form asp-action="Register">
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Entrez votre email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Entrez votre mot de passe" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirmez votre mot de passe" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary">S'Inscrire</button>
+                </div>
+            </form>
+            <p class="text-center mt-3">
+                Déjà un compte ? <a asp-action="Login" class="text-primary">Connectez-vous</a>
+            </p>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

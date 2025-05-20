@@ -1,0 +1,35 @@
+@model IEnumerable<TennisShopApp.Data.Models.Joueur>
+@{
+    ViewData["Title"] = "Joueurs";
+}
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Liste des Joueurs</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Ajouter un Joueur</a>
+        </p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NomPrenom</td>
+                        <td>@item.Score</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CodeJ" class="btn btn-sm btn-warning">Modifier</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

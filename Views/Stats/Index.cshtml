@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "Statistiques";
+}
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Top 5 Joueurs</h3>
+    </div>
+    <div class="card-body">
+        <canvas id="topPlayersChart" width="400" height="200"></canvas>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        var ctx = document.getElementById('topPlayersChart').getContext('2d');
+        var topPlayers = @Html.Raw(Json.Serialize(ViewBag.TopPlayers));
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: topPlayers.map(p => p.nomPrenom),
+                datasets: [{
+                    label: 'Score',
+                    data: topPlayers.map(p => p.score),
+                    backgroundColor: [
+                        'rgba(40, 167, 69, 0.8)',
+                        'rgba(211, 84, 0, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(40, 167, 69, 1)',
+                        'rgba(211, 84, 0, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Score'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Joueurs'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#343A40',
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 12 }
+                    }
+                }
+            }
+        });
+    </script>
+}

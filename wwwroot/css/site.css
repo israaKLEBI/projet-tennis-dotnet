@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    color: #343A40;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #28A745;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #343A40 !important;
+    transition: background-color 0.3s;
+}
+
+.navbar-brand img {
+    transition: transform 0.2s;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #28A745 !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #28A745;
+    border-color: #28A745;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+.btn-warning {
+    background-color: #D35400;
+    border-color: #D35400;
+}
+
+.btn-warning:hover {
+    background-color: #C0392B;
+    border-color: #C0392B;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #CED4DA;
+    padding: 0.75rem;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #28A745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control[readonly] {
+    background-color: #E9ECEF;
+    opacity: 1;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+}
+
+/* Tables */
+.table {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #28A745;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table tr:nth-child(even) {
+    background-color: #F8F9FA;
+}
+
+.table tr:hover {
+    background-color: #E9ECEF;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Footer */
+footer {
+    background-color: #343A40;
+    font-size: 0.875rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .table {
+        font-size: 0.875rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}

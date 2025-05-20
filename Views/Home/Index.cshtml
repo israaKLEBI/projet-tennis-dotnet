@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<div class="text-center py-5">
+    <h1 class="display-4 mb-4">Bienvenue à TennisShopApp</h1>
+    <p class="lead text-muted">Gérez vos tournois et joueurs avec facilité.</p>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="card p-4 mx-auto" style="max-width: 500px;">
+            <p class="mb-3">Bonjour, <strong>@(User.Identity.Name ?? "Utilisateur")</strong> !</p>
+            <div class="d-grid gap-2">
+                <a asp-controller="User" asp-action="Dashboard" class="btn btn-primary">Tableau de Bord</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Joueur" asp-action="Index" class="btn btn-primary">Gérer Joueurs</a>
+                    <a asp-controller="Tournoi" asp-action="Index" class="btn btn-primary">Gérer Tournois</a>
+                }
+                <a asp-controller="Stats" asp-action="Index" class="btn btn-secondary">Statistiques</a>
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    <button type="submit" class="btn btn-danger">Déconnexion</button>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="d-grid gap-2 col-md-4 mx-auto">
+            <a asp-controller="Account" asp-action="Login" class="btn btn-success btn-lg">Connexion</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-lg">Inscription</a>
+        </div>
+    }
+</div>

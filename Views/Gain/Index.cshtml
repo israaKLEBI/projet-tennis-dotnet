@@ -1,0 +1,31 @@
+@model IEnumerable<TennisShopApp.Data.Models.Gain>
+@{
+    ViewData["Title"] = "Gains";
+}
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Liste des Gains</h3>
+    </div>
+    <div class="card-body">
+        <a asp-action="Create" class="btn btn-primary mb-3">Ajouter un Gain</a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tournoi</th>
+                    <th>Joueur</th>
+                    <th>Phase</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(item.Tournoi?.NomT ?? "N/A")</td>
+                        <td>@(item.Joueur?.NomPrenom ?? "N/A")</td>
+                        <td>@(item.Phase?.LibellePh ?? "N/A")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

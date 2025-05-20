@@ -1,0 +1,45 @@
+@model TennisShopApp.Controllers.UserDashboardViewModel
+@{
+    ViewData["Title"] = "User Dashboard";
+}
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Tableau de Bord Utilisateur</h3>
+    </div>
+    <div class="card-body text-center">
+        <h4>Bienvenue, @Model.UserEmail !</h4>
+        <p class="lead text-muted">Gérez votre expérience TennisShopApp.</p>
+        <div class="row g-4 mt-3">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de Joueurs</h5>
+                        <p class="card-text display-6">@Model.TotalPlayers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de Tournois</h5>
+                        <p class="card-text display-6">@Model.TotalTournaments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de Gains</h5>
+                        <p class="card-text display-6">@Model.TotalGains</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2 mt-4">
+            <a asp-action="Profile" asp-controller="User" class="btn btn-primary">Mon Profil</a>
+            <a asp-action="Tournaments" asp-controller="User" class="btn btn-primary">Voir les Tournois</a>
+            <a asp-controller="Stats" asp-action="Index" class="btn btn-secondary">Voir les Statistiques</a>
+            <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Déconnexion</a>
+        </div>
+    </div>
+</div>
